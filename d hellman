@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Diffie-Hellman Key Exchange</title>
+</head>
+<body>
+    <h2>Diffie-Hellman Key Exchange</h2>
+    <hr>
+    <script>
+        function power(a, b, p) {
+            if (b === 1) return a;
+            let result = 1;
+            while (b > 0) {
+                if (b % 2 === 1) {
+                    result = (result * a) % p;
+                }
+                a = (a * a) % p;
+                b = Math.floor(b / 2);
+            }
+            return result;
+        }
+
+        let P = 17;
+        document.write("The value of P: " + P + "<br>");
+
+        let G = 6;
+        document.write("The value of G: " + G + "<br>");
+
+        let a = 4;
+        document.write("The private key a for Alice: " + a + "<br>");
+
+        let x = power(G, a, P);
+
+        let b = 3;
+        document.write("The private key b for Bob: " + b + "<br>");
+
+        let y = power(G, b, P);
+
+        let ka = power(y, a, P);
+        let kb = power(x, b, P);
+
+        document.write("Secret key for Alice is: " + ka + "<br>");
+        document.write("Secret key for Bob is: " + kb + "<br>");
+    </script>
+</body>
+</html>s
