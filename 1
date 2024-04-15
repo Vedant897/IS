@@ -1,0 +1,32 @@
+#include <bits/stdc++.h> 
+using namespace std;
+int AndAscii(string str, int len) 
+{ 
+ int ans;
+ cout << "And operation" << endl;
+ for (int i = 1; i < len; i++)
+ { 
+ ans = (127 & (int(str[i])));
+ cout << ans << endl;
+ } 
+} 
+
+int XorAscii(string str, int len) 
+{ 
+ cout << "Xor operation" << endl;
+ int ans;
+ for (int i = 1; i < len; i++)
+ { 
+ ans = (127 ^ (int(str[i])));
+ cout << ans << endl;
+ } 
+} 
+
+int main() 
+{ 
+ string str = "hello world";
+ int len = str.length();
+ cout << XorAscii(str, len) << endl;
+ cout << AndAscii(str, len) << endl;
+ return 0;
+} 
