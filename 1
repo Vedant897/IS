@@ -1,0 +1,36 @@
+a=input(str("Enter a String: "))
+b=127
+c=b and a
+d=[chr(ord(x)^ord(y)) for x,y in zip(a,str(b))]
+print(c)
+print(d)
+
+#include <stdio.h>
+#include <string.h>
+
+int main(void) {
+    char str[] = "Hello World";
+    int length = strlen(str);
+
+    printf("Original string: %s\n", str);
+
+    printf("AND operation result: ");
+    for (int i = 0; i < length; i++) {
+        printf("%c", str[i] & 0x0F);
+    }
+    printf("\n");
+
+    printf("XOR operation result: ");
+    for (int i = 0; i < length; i++) {
+        printf("%c", str[i] ^ 0x0F);
+    }
+    printf("\n");
+
+    printf("OR operation result: ");
+    for (int i = 0; i < length; i++) {
+        printf("%c", str[i] | 0x0F);
+    }
+    printf("\n");
+
+    return 0;
+}
